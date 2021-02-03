@@ -1,16 +1,4 @@
 
-$GUIDs = [System.Collections.ArrayList]@()
-$Userprincipalnames = [System.Collections.ArrayList]@()
-$Distinguishednames = [System.Collections.ArrayList]@()
-$PrimarySMTPAddresses = [System.Collections.ArrayList]@()
-$ExchangeGUIDs = [System.Collections.ArrayList]@()
-$MyArrayList = [System.Collections.ArrayList]@()
-$MyArrayList = [System.Collections.ArrayList]@()
-$MyArrayList = [System.Collections.ArrayList]@()
-$MyArrayList = [System.Collections.ArrayList]@()
-$MyArrayList = [System.Collections.ArrayList]@()
-$MyArrayList = [System.Collections.ArrayList]@()
-
 $All = [System.Collections.ArrayList]@()
 $GUIDs = [System.Collections.ArrayList]@()
 $Userprincipalnames = [System.Collections.ArrayList]@()
@@ -29,8 +17,6 @@ for ($M = 0; $M -lt $MBXs.count; $M++) {
 $PrimarySMTPAddresses.Add($MBXs[$M].PrimarySMTPAddress)
        $ExchangeGUIDs.Add($MBXs[$M].ExchangeGUID)
  }
-
-
 
 
 for ($M = 0; $M -lt $MBXs.count; $M++) { 
@@ -64,6 +50,7 @@ $PrimarySMTPAddresses[$M]
 
 
 [System.Collections.ArrayList]$MBX = $MBXs | select GUID,Userprincipalname,Distinguishedname,PrimarySMTPAddress,ExchangeGUID
+
  Measure-Command {
 
 for ($M = 0; $M -lt $MBXs.count; $M++) { 
