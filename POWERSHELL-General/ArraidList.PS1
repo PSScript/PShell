@@ -63,7 +63,7 @@ $PrimarySMTPAddresses[$M]
  } }
 
 
- $MBX = $MBXs | select GUID,Userprincipalname,Distinguishedname,PrimarySMTPAddress,ExchangeGUID
+[System.Collections.ArrayList]$MBX = $MBXs | select GUID,Userprincipalname,Distinguishedname,PrimarySMTPAddress,ExchangeGUID
  Measure-Command {
 
 for ($M = 0; $M -lt $MBXs.count; $M++) { 
@@ -73,4 +73,17 @@ for ($M = 0; $M -lt $MBXs.count; $M++) {
    $($MBX[$M].Distinguishedname)
    $($MBX[$M].PrimarySMTPAddress)
    $($MBX[$M].ExchangeGUID)
+ } }
+ $MBXs.GetType()
+ $GUIDs.GetType()
+
+  Measure-Command {
+
+for ($M = 0; $M -lt $MBXs.count; $M++) { 
+
+   $($MBXs[$M].GUID)
+   $($MBXs[$M].Userprincipalname)
+   $($MBXs[$M].Distinguishedname)
+   $($MBXs[$M].PrimarySMTPAddress)
+   $($MBXs[$M].ExchangeGUID)
  } }
